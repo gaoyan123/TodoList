@@ -1,29 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
-import Link from "./Link";
-import { stateProp } from "../../interface";
-
-enum VISIBILITY_FILTER {
-  all = "all",
-  active = "active",
-  completed = "completed",
-}
+import { VisibilityFilter } from "../../interface";
+import LinkItem from "./LinkItem";
 
 const Filter: React.FC = () => {
-  const filter = useSelector((state: stateProp) => state.visibilityFilter);
-
   return (
     <p>
-      <Link filter={VISIBILITY_FILTER.all} active={VISIBILITY_FILTER.all === filter}>
+      <LinkItem filter={VisibilityFilter.ALL}>
         All
-      </Link>
-      <Link filter={VISIBILITY_FILTER.active} active={VISIBILITY_FILTER.active === filter}>
+      </LinkItem>
+      <LinkItem filter={VisibilityFilter.ACTIVE}>
         Active
-      </Link>
-      <Link filter={VISIBILITY_FILTER.completed} active={VISIBILITY_FILTER.completed === filter}>
+      </LinkItem>
+      <LinkItem filter={VisibilityFilter.COMPLETED}>
         Completed
-      </Link>
+      </LinkItem>
     </p>
   );
 };

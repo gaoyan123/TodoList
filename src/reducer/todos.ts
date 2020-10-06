@@ -1,6 +1,6 @@
-import { actionProp, todoItemProp } from "../interface/index";
+import { ActionProp, Todoitem } from "../interface/index";
 
-const todos = (state: todoItemProp[] = [], action: actionProp) => {
+const todos = (state: Todoitem[] = [], action: ActionProp) => {
   switch (action.type) {
     case "ADD_TODO":
       return [

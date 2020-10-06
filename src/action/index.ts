@@ -1,4 +1,4 @@
-import { VISIBILITY_FILTER } from '../interface'
+import { VisibilityFilter } from '../interface'
 let initId = 0
 export const addTodo = ( text: string ) => {
   return {
@@ -8,9 +8,9 @@ export const addTodo = ( text: string ) => {
   }
 }
 
-export const setVisibilityFilter = ( filter: VISIBILITY_FILTER ) => {
+export const setVisibilityFilter = ( filter: VisibilityFilter ) => {
   return {
-    type: 'SET_VISIBILITY_FILTER',
+    type: 'SET_VisibilityFilter',
     filter
   }
 }
@@ -22,7 +22,7 @@ export const removeTodo = ( id: number ) => {
   }
 }
 
-export const filterTodo = (  filter: VISIBILITY_FILTER) => {
+export const filterTodo = (  filter: VisibilityFilter) => {
   return {
     type: 'FILTER_TODO',
     filter

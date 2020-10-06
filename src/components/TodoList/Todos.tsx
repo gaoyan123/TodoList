@@ -2,29 +2,22 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import TodoItem from "./TodoItem";
-import { stateProp, todoProp } from "../../interface";
+import { StateProp, TodoProp, VisibilityFilter } from "../../interface";
 
-enum VISIBILITY_FILTER {
-  all = "all",
-  active = "active",
-  completed = "completed",
-}
-
-const getVisibleTodos = (todos: Array<todoProp>, filter: VISIBILITY_FILTER) => {
+const getVisibleTodos = (todos: Array<TodoProp>, filter: VisibilityFilter) => {
   switch (filter) {
-    case VISIBILITY_FILTER.active:
+    case VisibilityFilter.ACTIVE:
       return todos.filter((t) => !t.completed);
-    case VISIBILITY_FILTER.completed:
+    case VisibilityFilter.COMPLETED:
       return todos.filter((t) => t.completed);
-    case VISIBILITY_FILTER.active:
     default:
       return todos;
   }
 };
 
 const Todos: React.FC = () => {
-  const filter = useSelector((state: stateProp) => state.visibilityFilter);
-  const todos = useSelector((state: stateProp) => getVisibleTodos(state.todos, filter));
+  const filter = useSelector((state: StateProp) => state.visibilityFilter);
+  const todos = useSelector((state: StateProp) => getVisibleTodos(state.todos, filter));
 
   return (
     <ul>

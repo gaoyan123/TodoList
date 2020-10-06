@@ -1,24 +1,14 @@
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { linkProp, VISIBILITY_FILTER } from "../../interface";
-import { setVisibilityFilter } from "../../action";
+import React from "react";
+import { LinkProp } from "../../interface";
 
-const Filter: React.FC<linkProp> = ({ children, filter, active }) => {
-  const dispatch = useDispatch();
-  const onClick = useCallback(
-    (filter: VISIBILITY_FILTER) => {
-      dispatch(setVisibilityFilter(filter));
-    },
-    [dispatch]
-  );
-
+const Filter: React.FC<LinkProp> = ({ children, active, onClick }) => {
   if (active) {
     return <span className="activeLink"> {children} </span>;
   }
+  
   return (
-    <button className="link" onClick={() => onClick(filter as VISIBILITY_FILTER)}>
-      {" "}
-      {children}{" "}
+    <button className="link" onClick={ onClick }>
+      {children}
     </button>
   );
 };

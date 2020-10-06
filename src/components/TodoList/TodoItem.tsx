@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { removeTodo, toggleTodo } from "../../action";
-import { todoItemProp } from "../../interface";
+import { Todoitem } from "../../interface";
 
-const TodoItem: React.FC<todoItemProp> = ({ id, text, completed }) => {
+const TodoItem: React.FC<Todoitem> = ({ id, text, completed }) => {
   const dispatch = useDispatch();
   const handleRemove = useCallback(
     (id: number) => {
@@ -30,8 +30,7 @@ const TodoItem: React.FC<todoItemProp> = ({ id, text, completed }) => {
           handleRemove(id);
         }}
       >
-        {" "}
-        X{" "}
+        X
       </button>
     </li>
   );

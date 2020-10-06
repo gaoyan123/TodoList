@@ -1,8 +1,8 @@
-import { actionProp } from "../interface/index";
+import { ActionProp } from "../interface/index";
 
-const visibilityFilter = (state = "all", action: actionProp) => {
+const visibilityFilter = (state = "ALL", action: ActionProp) => {
   switch (action.type) {
-    case "SET_VISIBILITY_FILTER":
+    case "SET_VisibilityFilter":
       return action.filter;
     default:
       return state;
