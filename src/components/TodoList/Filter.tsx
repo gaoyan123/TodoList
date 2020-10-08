@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { VisibilityFilter, StateProp } from "../../interface";
-import LinkItem from "./LinkItem";
+import LinkList from "./LinkIList";
 import { useSelector, useDispatch } from "react-redux";
 import { setVisibilityFilter } from "../../action";
 
@@ -30,9 +30,9 @@ const Filter: React.FC = () => {
   },[dispatch]);
   
   return (
-    <LinkItem list={ filterList } onClick = { handleClick }>
+    <LinkList list={ filterList } onClick = { handleClick }>
       Completed
-    </LinkItem>
+    </LinkList>
   );
 };
 

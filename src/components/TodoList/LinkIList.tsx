@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import Link from "./Link";
 import { FilterProp } from "../../interface";
 
-const LinkItem: React.FC<FilterProp> = ({ children, list, onClick}) => {
+const LinkList: React.FC<FilterProp> = ({ children, list, onClick}) => {
   const handleClick = useCallback((key) => {
     if(onClick) onClick(key);
   }, [onClick]);
@@ -22,4 +22,4 @@ const LinkItem: React.FC<FilterProp> = ({ children, list, onClick}) => {
   );
 };
 
-export default LinkItem;
+export default LinkList;
