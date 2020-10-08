@@ -4,23 +4,25 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../../action";
 
 const AddTodo: React.FC = () => {
-  const ref = useRef() as React.MutableRefObject<HTMLFormElement>;
+  const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (!ref.current.value.trim()) return;
+      if(inputRef && inputRef.current){
+        if (!inputRef.current.value.trim()) return;
 
-      dispatch(addTodo(ref.current.value));
-      ref.current.value = "";
+        dispatch(addTodo(inputRef.current.value));
+        inputRef.current.value = "";
+      }
     },
-    [dispatch,ref]
+    [dispatch,inputRef]
   );
 
   return (
     <form onSubmit={handleSubmit}>
-      <input className="addItemInput" placeholder="有什么需要做的？" ref={ref as any} />
+      <input className="addItemInput" placeholder="有什么需要做的？" ref={inputRef as any} />
     </form>
   );
 };

@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { removeTodo, toggleTodo } from "../../action";
-import { Todoitem } from "../../interface";
+import { TodoProp } from "../../interface";
 
-const TodoItem: React.FC<Todoitem> = ({ id, text, completed }) => {
+const TodoItem: React.FC<TodoProp> = ({ id, text, completed }) => {
   const dispatch = useDispatch();
   const handleRemove = useCallback(
     (id: number) => {

@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import  Tips from "./Tips"
 import { StateProp } from "../../interface";
 
 const Footer: React.FC = () => {
   const todos = useSelector((state: StateProp) => state.todos);
-  const completedLen = () => {
-    return todos.filter((t) => t.completed).length;
-  };
+  const allLen = todos.length;
+  const completedLen = todos.filter((t) => t.completed).length;
 
   return (
-    <Tips totalNum={todos.length} completedNum = {completedLen()} />
+  <span className="tips">
+    共计{allLen}个,已完成 {completedLen}个
+  </span>
   );
 };
 

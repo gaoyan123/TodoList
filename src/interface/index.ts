@@ -4,8 +4,6 @@
   completed: boolean;
 }
 
-export interface Todoitem extends TodoProp {}
-
 export enum VisibilityFilter {
   ALL = "ALL",
   ACTIVE = "ACTIVE",
@@ -26,6 +24,17 @@ export interface LinkProp {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   [propName: string]: any;
   filter?: VisibilityFilter;
+  active: boolean
+}
+
+export interface FilterProp {
+  list: LinkItemProp[],
+  onClick: (key:VisibilityFilter) => void;
+}
+
+export interface LinkItemProp {
+  name: VisibilityFilter,
+  isActive: boolean
 }
 
 export interface TipsProp {
